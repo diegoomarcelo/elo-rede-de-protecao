@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  Elo · Rede de Proteção
+  Protótipo do Projeto Integrador: acompanha a jornada de uma mulher entre os
+  serviços da rede de proteção (saúde, assistência social, justiça, segurança).
+
+  Estrutura:
+    index.html → esqueleto da página (este arquivo)
+    css/       → estilos, separados por tela e carregados em ordem
+    js/        → dados, estado, telas e eventos, carregados em ordem
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <title>Elo Rede de Proteção</title>
+
+  <!-- Fontes do Google: Sora (títulos) e Atkinson Hyperlegible (texto, alta legibilidade) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Sora:wght@500;600;700&display=swap">
+
+  <!-- Estilos (a ordem importa: base → componentes → telas → modal) -->
+  <link rel="stylesheet" href="css/01-base.css">
+  <link rel="stylesheet" href="css/02-cabecalho.css">
+  <link rel="stylesheet" href="css/03-login.css">
+  <link rel="stylesheet" href="css/04-componentes.css">
+  <link rel="stylesheet" href="css/05-mulher.css">
+  <link rel="stylesheet" href="css/06-profissional.css">
+  <link rel="stylesheet" href="css/07-gestao.css">
+  <link rel="stylesheet" href="css/08-modal.css">
+</head>
+<body>
+
+<!--
+  Cabeçalho fixo: marca do Elo e, depois do login, o usuário logado (#who).
+  #hdr é escondido no modo "Sair rápido".
+-->
+<header class="top" id="hdr">
+  <div class="wrap topin">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="7.5" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="19" cy="15" r="7.5" fill="none" stroke="var(--accent)" stroke-width="3" opacity=".55"/></svg>
+      <div>Elo<small>Continuidade da rede de proteção</small></div>
+    </div>
+    <div class="who" id="who"></div>
+  </div>
+</header>
+
+<!-- Faixa de aviso do protótipo (escondida no modo "Sair rápido") -->
+<div class="proto" id="proto"><div class="wrap">Protótipo do Projeto Integrador · nomes, casos, endereços e telefones são fictícios · as mudanças ficam só nesta aba</div></div>
+
+<!-- Área principal: o JavaScript desenha aqui a tela atual (login, mulher, profissional ou gestão) -->
+<main class="wrap" id="app"></main>
+
+<!-- Camada dos modais (fica por cima da página) -->
+<div id="layer"></div>
+
+<!--
+  Scripts (a ordem importa: cada arquivo usa o que os anteriores definiram).
+  São scripts comuns (não módulos), então a página funciona também abrindo
+  o index.html direto do computador, sem servidor.
+-->
+  <script src="js/01-dados.js"></script>
+  <script src="js/02-estado.js"></script>
+  <script src="js/03-utilidades.js"></script>
+  <script src="js/04-tela-login.js"></script>
+  <script src="js/05-tela-mulher.js"></script>
+  <script src="js/06-carrossel-ajuda.js"></script>
+  <script src="js/07-tela-neutra.js"></script>
+  <script src="js/08-tela-profissional.js"></script>
+  <script src="js/09-tela-gestao.js"></script>
+  <script src="js/10-modais.js"></script>
+  <script src="js/11-render.js"></script>
+  <script src="js/12-eventos.js"></script>
+  <script src="js/13-main.js"></script>
+
+</body>
+</html>
