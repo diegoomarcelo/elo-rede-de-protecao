@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* =====================================================================
+   07-gestao.css
+   Tela de gestão da rede: indicadores agregados e barras de progresso.
+   ===================================================================== */
+
+
+/* gestão */
+/* Cartões de indicadores (4 colunas; 2 no celular) */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.kpi .v{font-family:var(--f-display);font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums}
+/* Barra de progresso de confirmações por par de serviços */
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;min-width:80px}
+.bar span{display:block;height:100%;background:var(--accent)}

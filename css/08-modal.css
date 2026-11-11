@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* =====================================================================
+   08-modal.css
+   Janelas modais, campos de formulário, mensagens de erro e toast.
+   ===================================================================== */
+
+
+/* modal */
+/* Fundo escurecido que cobre a tela */
+.ov{position:fixed;inset:0;background:rgba(15,12,22,.5);display:grid;place-items:center;z-index:20;padding:16px}
+/* Janela do modal */
+.modal{background:var(--surface);border-radius:14px;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+/* Campos de formulário (rótulo + entrada) */
+.field{display:flex;flex-direction:column;gap:5px}
+.field label,.field .lbl{font-weight:700;font-size:.88rem}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg)}
+.field textarea{min-height:70px;resize:vertical}
+/* Opções com checkbox (o que compartilhar, consentimento) */
+.opt{display:flex;gap:8px;align-items:flex-start;font-size:.9rem}
+.opt input{margin-top:4px}
+/* Mensagem de erro */
+.err{color:var(--crit);font-size:.85rem;font-weight:700}
+/* Aviso temporário no rodapé (toast), com animação de entrada */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;z-index:30;font-weight:700;font-size:.9rem;max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion:no-preference){.toast{animation:up .2s ease-out}@keyframes up{from{transform:translate(-50%,8px);opacity:.4}}}
