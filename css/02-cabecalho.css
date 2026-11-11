@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* =====================================================================
+   02-cabecalho.css
+   Barra superior: marca do Elo, seletor de perfis e usuário logado.
+   ===================================================================== */
+
+
+/* Faixa fixa atrás da barra de status do celular (mesma cor do cabeçalho) */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+/* Cabeçalho que fica grudado no topo ao rolar a página */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.topin{display:flex;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
+/* Marca: logotipo (dois anéis) + nome "Elo" + subtítulo */
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.brand svg{flex:none}
+.brand small{font-family:var(--f-body);font-weight:400;color:var(--muted);font-size:.8rem;display:block;line-height:1.2}
+/* Seletor de perfis em formato de abas (mantido do layout original) */
+.roles{display:flex;gap:4px;overflow-x:auto;margin-left:auto;padding:3px;background:var(--bg);border-radius:10px;max-width:100%}
+.roles button{border:0;background:transparent;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;color:var(--muted);font-size:.88rem}
+.roles button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:700}
+/* Área do usuário logado: nome, serviço e botão "Sair" */
+.who{margin-left:auto;display:flex;align-items:center;gap:12px;font-size:.88rem}
+.who .u{text-align:right;line-height:1.25}
+.who .u small{display:block;color:var(--muted)}

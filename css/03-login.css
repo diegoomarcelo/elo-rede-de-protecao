@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* =====================================================================
+   03-login.css
+   Tela inicial (escolha de entrada) e telas de login.
+   ===================================================================== */
+
+
+/* login */
+/* Tela inicial: escolha entre "Sou atendida" e "Sou profissional" */
+.gate{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.gate-head{display:flex;flex-direction:column;gap:6px;max-width:600px}
+/* As duas "portas" de entrada lado a lado (empilham no celular) */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:680px){.doors{grid-template-columns:1fr}}
+.door{text-align:left;cursor:pointer;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.door:hover{border-color:var(--accent)}
+.door .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.door.org .ic{background:var(--sei-soft);color:var(--sei)}
+.door .go{margin-top:auto;font-weight:700;color:var(--accent)}
+.door.org .go{color:var(--sei)}
+/* Formulário de login (mulher e profissional) */
+.login{max-width:440px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.login form{display:flex;flex-direction:column;gap:14px}
+.login .field input,.login .field select{padding:11px 12px;font-size:1rem}
+.login .btn.primary{padding:12px;font-size:1rem}
+.login.org .btn.primary{background:var(--sei);border-color:var(--sei);color:var(--surface)}
+/* Botão com aparência de link (ex.: "← Voltar") */
+.linkbtn{border:0;background:none;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline;font-size:.88rem;align-self:flex-start}
+/* Caixa com as credenciais de teste do protótipo */
+.testcred{border:1px dashed var(--line);border-radius:10px;padding:10px 12px;font-size:.85rem;color:var(--muted)}
+/* Avisos curtos com ícone ao lado (segurança e privacidade) */
+.note{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:.85rem;color:var(--muted)}
