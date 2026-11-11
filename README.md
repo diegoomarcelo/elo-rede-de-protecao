@@ -10,6 +10,8 @@
 
 **Uma camada de continuidade entre os serviços da rede de proteção à mulher.**
 
+[![Acessar o protótipo](https://img.shields.io/badge/▶%20Acessar%20o%20protótipo-5F3A93?style=for-the-badge&logoColor=white)](https://diegoomarcelo.github.io/elo-rede-de-protecao/)
+
 [Como funciona](#-como-funciona) ·
 [Telas](#-telas-do-protótipo) ·
 [Funcionalidades](#-funcionalidades) ·
@@ -197,7 +199,9 @@ gantt
 
 ## 🚀 Como executar
 
-Não precisa de instalação nem servidor: basta abrir o `index.html` no navegador.
+**Online:** acesse **[https://diegoomarcelo.github.io/elo-rede-de-protecao/](https://diegoomarcelo.github.io/elo-rede-de-protecao/)**.
+
+**Localmente:** não precisa de instalação nem servidor, basta abrir o `index.html` no navegador.
 
 ```bash
 git clone <url-deste-repositório>
