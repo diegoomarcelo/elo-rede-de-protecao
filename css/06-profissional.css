@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* =====================================================================
+   06-profissional.css
+   Tela do profissional da rede: lista de casos, alertas, informações
+   compartilhadas, checklist, tabelas e registro de acessos.
+   Obs.: .alert, .ico, .items e as tabelas também aparecem nas outras telas.
+   ===================================================================== */
+
+
+/* profissional */
+/* Duas colunas: caixa de casos à esquerda e detalhe do caso à direita */
+.pro{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+@media (max-width:860px){.pro{grid-template-columns:1fr}}
+/* Caixa de entrada com a lista de casos */
+.inbox{display:flex;flex-direction:column;gap:14px}
+.inbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+/* Botão de cada caso na lista (destacado quando selecionado) */
+.case-btn{width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.case-btn[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.case-btn .l1{display:flex;justify-content:space-between;gap:8px;align-items:center}
+/* Alertas coloridos (também usados em outras telas): aviso, crítico, informação e SEI */
+.alert{border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.alert.warn{background:var(--warn-soft)} .alert.crit{background:var(--crit-soft)} .alert.info{background:var(--accent-soft)} .alert.sei{background:var(--sei-soft)}
+/* Grade de dois cards lado a lado */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.grid2{grid-template-columns:1fr}}
+/* Lista de informações compartilhadas (também usada na gestão) */
+.items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.items li{padding:10px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:3px}
+.items li:first-child{border-top:0;padding-top:0}
+.items .src{font-size:.78rem;color:var(--muted)}
+/* Checklist "Antes de perguntar de novo" */
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.check li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
+/* Ícones redondos: ✓ (ok), ? (perguntar se precisar), ! (necessário) */
+.ico{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;font-weight:700;margin-top:1px}
+.ico.ok{background:var(--ok-soft);color:var(--ok)} .ico.ask{background:var(--warn-soft);color:var(--warn)} .ico.need{background:var(--accent-soft);color:var(--accent)}
+/* Tabelas com rolagem horizontal em telas pequenas */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th{text-align:left;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.num{font-variant-numeric:tabular-nums;text-align:right}
+/* Registro de acessos (auditoria) */
+.audit{list-style:none;margin:0;padding:0;font-size:.85rem;display:flex;flex-direction:column;gap:6px}
+.audit li{display:grid;grid-template-columns:96px 1fr;gap:8px}
+.audit .when{font-variant-numeric:tabular-nums;color:var(--muted)}

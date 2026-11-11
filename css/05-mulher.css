@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* =====================================================================
+   05-mulher.css
+   Tela da mulher atendida: próximo passo, carrossel de ajuda,
+   encaminhamentos, linha do tempo, privacidade e saída rápida.
+   ===================================================================== */
+
+
+/* mulher */
+.her{display:flex;flex-direction:column;gap:20px}
+/* Saudação no topo + abas "Minha jornada" / "Privacidade e acessos" */
+.her-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.her-top h1{font-size:1.35rem}
+/* Abas */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;max-width:100%}
+.tabs button{border:0;background:none;padding:10px 14px;cursor:pointer;color:var(--muted);font-weight:700;font-size:.9rem;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+/* Grade principal: card do próximo passo + carrossel de ajuda (empilha em telas menores) */
+.hero{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px}
+.cols{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:900px){.hero,.cols{grid-template-columns:1fr}}
+/* próximo passo */
+/* Card "Seu próximo passo" */
+.next{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow)}
+.next-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.next-body{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:start}
+/* Mini calendário com mês, dia e dia da semana */
+.cal{border-radius:12px;overflow:hidden;border:1px solid var(--line);text-align:center;font-variant-numeric:tabular-nums}
+.cal .m{background:var(--accent);color:var(--accent-ink);font-size:.72rem;font-weight:700;letter-spacing:.1em;padding:4px 0}
+.cal .d{font-family:var(--f-display);font-size:1.75rem;font-weight:700;line-height:1;padding:8px 0 2px}
+.cal .w{font-size:.72rem;color:var(--muted);padding-bottom:7px}
+.next h2{font-size:1.2rem}
+/* Lista de informações do atendimento: quando, onde, horário, o que levar */
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin-top:12px}
+@media (max-width:560px){.facts{grid-template-columns:1fr}.next-body{grid-template-columns:60px 1fr;gap:14px}}
+.fact{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:.9rem;min-width:0}
+.fact svg{color:var(--muted);margin-top:2px}
+.fact b{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+/* Chips com os documentos a levar */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.8rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+/* Rodapé do card com telefone da referência */
+.next-foot{border-top:1px solid var(--line);padding-top:12px;font-size:.88rem;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.next-foot b{color:var(--ink);font-variant-numeric:tabular-nums}
+/* carrossel de ajuda */
+/* Card escuro com os telefones de emergência que passam sozinhos */
+.help{background:var(--ink);color:var(--bg);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:100%;position:relative;overflow:hidden}
+/* Trilho que desliza horizontalmente para mostrar cada telefone */
+.help .eyebrow{color:inherit;opacity:.7}
+.help-viewport{overflow:hidden;flex:1}
+.help-track{display:flex;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:reduce){.help-track{transition:none}}
+/* Cada slide do carrossel */
+.slide{flex:0 0 100%;display:flex;flex-direction:column;gap:6px;min-width:0}
+.slide .num{font-family:var(--f-display);font-size:2.6rem;font-weight:700;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.slide .num.sm{font-size:1.5rem}
+.slide .t{font-weight:700;font-size:1rem}
+.slide p{opacity:.78;font-size:.88rem}
+.slide a{color:inherit;font-size:.85rem;font-weight:700}
+/* Navegação do carrossel: bolinhas e setas */
+.help-nav{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dots{display:flex;gap:6px}
+.dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:var(--bg);opacity:.3;cursor:pointer;transition:width .2s}
+.dots button[aria-current="true"]{opacity:1;width:22px}
+.arrows{display:flex;gap:6px}
+.arrows button{width:30px;height:30px;border-radius:50%;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:none;color:inherit;cursor:pointer;font-size:.9rem}
+/* Card "Você não precisa contar tudo de novo" */
+.knows{display:flex;flex-direction:column;gap:10px}
+.knows ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.knows li{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start}
+/* Barra de andamento em 3 etapas (Enviado → Serviço recebeu → Atendida) */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.steps span{font-size:.75rem;color:var(--muted);padding-top:8px;border-top:4px solid var(--line)}
+.steps span.on{color:var(--ink);border-top-color:var(--accent);font-weight:700}
+/* Linha do tempo "Por onde você já passou" (bolinha + linha vertical) */
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:56px 18px 1fr;gap:10px;min-height:52px}
+.tl .d{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem;padding-top:1px;text-align:right}
+.tl .dot{position:relative}
+.tl .dot::before{content:"";position:absolute;left:5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.tl .dot::after{content:"";position:absolute;left:9px;top:16px;bottom:-4px;width:1px;background:var(--line)}
+.tl li:last-child .dot::after{display:none}
+/* Atendimento futuro aparece com bolinha vazada */
+.tl li.future .dot::before{background:var(--surface);border:2px solid var(--accent);width:7px;height:7px}
+.tl .t{padding-bottom:14px;min-width:0}
+.tl .t b{display:block}
+/* Título de seção com contador ao lado */
+.sec-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+/* Lista "Seus encaminhamentos" */
+.refs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.refs li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.refs li:first-child{border-top:0;padding-top:0}
+.refs .steps{grid-column:1/-1}
+/* privacidade */
+/* Cards por serviço mostrando o que cada um pode ver */
+.priv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.svc-card .count{font-family:var(--f-display);font-weight:700;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.svc-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.88rem}
+.svc-card li{display:grid;grid-template-columns:16px 1fr;gap:6px}
+.svc-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px;margin-left:4px}
+/* Três princípios de privacidade */
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.principles{grid-template-columns:1fr}}
+.principles div{display:flex;flex-direction:column;gap:4px;font-size:.88rem}
+/* Botão flutuante "Sair rápido" (troca a tela por uma lista de compras) */
+.exit{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+/* Tela disfarce "Lista de compras" */
+.neutral{max-width:520px;margin:40px auto;display:flex;flex-direction:column;gap:12px}
+.neutral ul{padding-left:20px;margin:0}

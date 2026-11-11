@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* =====================================================================
+   04-componentes.css
+   Componentes reutilizados em todas as telas: faixa de protótipo,
+   cartões, botões, pílulas de status, etiquetas e textos auxiliares.
+   ===================================================================== */
+
+
+/* Faixa de aviso "Protótipo do Projeto Integrador" */
+.proto{background:var(--accent-soft);color:var(--ink);font-size:.82rem}
+.proto .wrap{padding-block:6px}
+/* Área principal da página (espaço extra embaixo para o botão "Sair rápido") */
+main{padding-block:24px 96px}
+/* Textos auxiliares: sobretítulo, texto apagado */
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.muted{color:var(--muted)}
+/* Blocos de layout: cartão, pilha vertical e linha horizontal */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+/* Botões: padrão, principal (cor de destaque) e pequeno */
+.btn{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.88rem}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.small{padding:5px 10px;font-size:.8rem}
+/* Pílulas de situação dos encaminhamentos (uma cor por status) */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-enviado{background:var(--warn-soft);color:var(--warn)}
+.p-atrasado{background:var(--crit-soft);color:var(--crit)}
+.p-recebido{background:var(--accent-soft);color:var(--accent)}
+.p-atendido{background:var(--accent-soft);color:var(--accent)}
+.p-retorno{background:var(--ok-soft);color:var(--ok)}
+.p-sei{background:var(--sei-soft);color:var(--sei)}
+/* Etiquetas pequenas (canal Elo, número SEI etc.) */
+.tag{font-size:.75rem;border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--muted);white-space:nowrap}
+.tag.sei{border-color:var(--sei);color:var(--sei)}
+/* Texto monoespaçado (IDs de caso) e dicas em letra menor */
+.mono{font-family:var(--f-mono);font-size:.8rem}
+.hint{font-size:.8rem;color:var(--muted)}
